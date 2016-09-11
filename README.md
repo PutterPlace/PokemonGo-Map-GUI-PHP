@@ -4,7 +4,7 @@ A PHP implementation of <a href="https://github.com/PokemonGoMap/PokemonGo-Map/"
 This implementation is fairly basic. I run my map with a fixed location and search control disabled, so such things have been disabled or not written in the code.
 
 <h3>Requirements:</h3>
-<ul><li>MySQL</li>
+<ul><li>Existing MySQL database created by PokemonGo-Map</li>
 <li>PHP >= 5.4 (with <b>mod_rewrite</b> enabled)</li></ul>
 
 <h3>Setting up config.inc.php</h3>
