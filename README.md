@@ -5,7 +5,7 @@ This implementation is fairly basic. I run my map with a fixed location and sear
 
 <h3>Requirements:</h3>
 <ul><li>MySQL</li>
-<li>PHP >= 5.4 (with <b>mod_rewrite<b> enabled)</li></ul>
+<li>PHP >= 5.4 (with <b>mod_rewrite</b> enabled)</li></ul>
 
 <h3>Setting up config.inc.php</h3>
 $startingLat and $startingLng
