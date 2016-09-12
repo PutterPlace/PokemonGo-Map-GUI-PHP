@@ -14,7 +14,7 @@ class Pokemon
         }
         $result = $db->query($sql);
         $data = array();
-        if (mysql_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) {
             $i = 0;
             while ($row = $db->fetch($result)) {
                 $data[$i]['disappear_time'] = ($row['disappear_time'] == null) ? null : (integer) (strtotime($row['disappear_time'] . " UTC") * 1000);
@@ -68,7 +68,7 @@ class Pokemon
         $data = array();
         $data['pokemon'] = array();
         $data['total'] = 0;
-        if (mysql_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) {
             $totalPokemon = 0;
             $i = 0;
             while ($row = $db->fetch($result)) {
@@ -123,7 +123,7 @@ class Pokemon
         }
         $result = $db->query($sql);
         $data = array();
-        if (mysql_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) {
             $i = 0;
             while ($row = $db->fetch($result)) {
                 $data[$i]['disappear_time'] = ($row['disappear_time'] == null) ? null : (integer) (strtotime($row['disappear_time'] . " UTC") * 1000);
@@ -159,7 +159,7 @@ class Pokemon
         $sql = "SELECT `t1`.`latitude`, `t1`.`longitude`, `t1`.`spawnpoint_id`, ((EXTRACT(minute FROM `t1`.`disappear_time`) * 60) + EXTRACT(second FROM `t1`.`disappear_time`)) AS time, Count(`t1`.`spawnpoint_id`) AS count FROM `pokemon` AS t1" . $sqlWhere . " GROUP BY `t1`.`latitude`, `t1`.`longitude`, `t1`.`spawnpoint_id`, time";
         $result = $db->query($sql);
         $data = array();
-        if (mysql_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) {
             $i = 0;
             while ($row = $db->fetch($result)) {
                 $size = count($data);
@@ -192,7 +192,7 @@ class Pokestop
         }
         $result = $db->query($sql);
         $data = array();
-        if (mysql_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) {
             $i = 0;
             while ($row = $db->fetch($result)) {
                 $data[$i]['active_fort_modifier'] = $row['active_fort_modifier'];
@@ -222,7 +222,7 @@ class Gym
         }
         $result = $db->query($sql);
         $data = array();
-        if (mysql_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) {
             while ($row = $db->fetch($result)) {
                 $data[$row['gym_id']]['enabled'] = (boolean) $row['enabled'];
                 $data[$row['gym_id']]['guard_pokemon_id'] = (integer) $row['guard_pokemon_id'];
@@ -252,7 +252,7 @@ class ScannedLocation
         $sql = "SELECT * FROM `scannedlocation` WHERE `last_modified` >= DATE_SUB(UTC_TIMESTAMP(), INTERVAL 15 MINUTE) AND `latitude` >= '" . $swLat . "' AND  `longitude` >= '" . $swLng . "' AND  `latitude` <= '" . $neLat . "' AND  `longitude` <= '" . $neLng . "' ORDER BY `last_modified` ASC";
         $result = $db->query($sql);
         $data = array();
-        if (mysql_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) {
             $i = 0;
             while ($row = $db->fetch($result)) {
                 $data[$i]['last_modified'] = ($row['last_modified'] == null) ? null : (integer) (strtotime($row['last_modified'] . " UTC") * 1000);

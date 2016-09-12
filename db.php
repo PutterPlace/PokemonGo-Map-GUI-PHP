@@ -16,8 +16,7 @@ class dbConnection
         $this->database = $dbName;
         $this->username = $dbUser;
         $this->password = $dbPass;
-        $this->link = mysql_connect($this->host, $this->username, $this->password);
-        mysql_select_db($this->database, $this->link);
+        $this->link = mysqli_connect($this->host, $this->username, $this->password, $this->database);
         return $this->link;
     }
     
@@ -25,7 +24,7 @@ class dbConnection
     {
         if (!empty($sql)) {
             $this->sql = $sql;
-            $this->result = mysql_query($sql, $this->link);
+            $this->result = mysqli_query($this->link, $sql);
             return $this->result;
         } else {
             return false;
@@ -37,12 +36,12 @@ class dbConnection
         if (empty($result)) {
             $result = $this->result;
         }
-        return mysql_fetch_assoc($result);
+        return mysqli_fetch_assoc($result);
     }
     
     public function __destruct()
     {
-        mysql_close($this->link);
+        mysqli_close($this->link);
     }
 }
 
