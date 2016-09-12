@@ -5,8 +5,7 @@ This implementation is fairly basic. I run my map with a fixed location and sear
 
 <h3>Requirements:</h3>
 <ul><li>Existing MySQL database created by PokemonGo-Map</li>
-<li>PHP >= 5.4</li>
-<li>Apache (with <b>mod_rewrite</b> enabled) or Nginx</li></ul>
+<li>PHP >= 5.4 (with <b>mod_rewrite</b> enabled)</li></ul>
 
 <h3>Setting up config.inc.php</h3>
 $startingLat and $startingLng
@@ -52,5 +51,30 @@ Add the following line to your nginx configuration:
       ...
     }
 
+
+-----------------------------
+<h3>Trobuleshooting</h3>
+If you are having any problems with the map, please check the following:
+
+<h3>Apache Virtual Host Config</h3>
+-----------------------------
+Make sure you have these setting in your Apache Virtual Host Config, otherwise map will not load correctly.
+
+     Options FollowSymLinks
+     AllowOverride All
+
+So you should have a config that looks something like this:
+
+    <VirtualHost *:80>
+    DocumentRoot "/var/www/test"
+    ServerName test.domain.com
+    <Directory "/var/www/test">
+     allow from all
+     Require all granted
+     Options FollowSymLinks
+     AllowOverride All
+    </Directory>
+    </VirtualHost>
+-----------------------------
 <b>Credits:</b>
 <a href="https://github.com/PokemonGoMap/PokemonGo-Map/">PokemonGo-Map</a>
