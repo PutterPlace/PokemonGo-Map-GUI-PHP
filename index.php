@@ -233,10 +233,10 @@ include('config.inc.php');
       <nav id="stats">
         <div class="switch-container">
           <div class="switch-container">
+            <center><div><a href="stats">Full Stats</a></div></center>
             <center><h1 id="stats-pkmn-label">Loading...</h1></center>
           </div>
           <div id="pokemonList" style="color: black;"></div>
-          <div><a href="stats">Full Stats</a></div>
           <div class="switch-container">
             <center><h1 id="stats-gym-label"></h1></center>
           </div>
