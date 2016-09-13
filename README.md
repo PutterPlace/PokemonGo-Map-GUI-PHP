@@ -52,5 +52,30 @@ Add the following line to your nginx configuration:
       ...
     }
 
+
+-----------------------------
+<h3>Trobuleshooting</h3>
+If you are having any problems with the map, please check the following:
+
+<h3>Apache Virtual Host Config</h3>
+-----------------------------
+Make sure you have these setting in your Apache Virtual Host Config, otherwise map will not load correctly.
+
+     Options FollowSymLinks
+     AllowOverride All
+
+So you should have a config that looks something like this:
+
+    <VirtualHost *:80>
+    DocumentRoot "/var/www/test"
+    ServerName test.domain.com
+    <Directory "/var/www/test">
+     allow from all
+     Require all granted
+     Options FollowSymLinks
+     AllowOverride All
+    </Directory>
+    </VirtualHost>
+-----------------------------
 <b>Credits:</b>
 <a href="https://github.com/PokemonGoMap/PokemonGo-Map/">PokemonGo-Map</a>
