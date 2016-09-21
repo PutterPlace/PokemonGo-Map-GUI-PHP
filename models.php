@@ -7,10 +7,13 @@ class Pokemon
     static function get_active($swLat, $swLng, $neLat, $neLng)
     {
         global $db;
+        if (empty($_GET['excluded'])){
+           $excluded = 0;
+        }
         if ($swLat == null || $swLng == null || $neLat == null || $neLng == null) {
-            $sql = "SELECT * FROM `pokemon` WHERE `disappear_time` > UTC_TIMESTAMP()";
+            $sql = "SELECT * FROM `pokemon` WHERE `disappear_time` > UTC_TIMESTAMP() AND `pokemon_id` NOT IN (".$excluded.")";
         } else {
-            $sql = "SELECT * FROM `pokemon` WHERE `disappear_time` > UTC_TIMESTAMP() AND `latitude` >= '" . $swLat . "' AND  `longitude` >= '" . $swLng . "' AND  `latitude` <= '" . $neLat . "' AND  `longitude` <= '" . $neLng . "'";
+            $sql = "SELECT * FROM `pokemon` WHERE `disappear_time` > UTC_TIMESTAMP() AND `latitude` >= '" . $swLat . "' AND  `longitude` >= '" . $swLng . "' AND  `latitude` <= '" . $neLat . "' AND  `longitude` <= '" . $neLng . "' AND `pokemon_id` NOT IN (".$excluded.")";
         }
         $result = $db->query($sql);
         $data = array();
