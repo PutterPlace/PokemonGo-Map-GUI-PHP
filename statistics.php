@@ -50,7 +50,7 @@ include('config.inc.php');
                 <div class="form-control">
                   <label for="duration">
                     <h3>Duration</h3>
-                    <select id="duration" name="duration" class="input" onChange="updateMap();">
+                    <select id="duration" name="duration" class="input" onChange="window.stop();updateMap();">
                         <option value="1h" >Last Hour</option>
                         <option value="3h" >Last 3 Hours</option>
                         <option value="6h" >Last 6 Hours</option>
@@ -70,7 +70,7 @@ include('config.inc.php');
                 <div class="form-control">
                   <label for="sort">
                     <h3>Sort</h3>
-                    <select id="sort" name="sort" class="input" onChange="updateMap();">
+                    <select id="sort" name="sort" class="input" onChange="window.stop();updateMap();">
                         <option value="count" SELECTED>Count</option>
                         <option value="id" >Pokedex Number</option>
                         <option value="name" >Pokemon Name</option>
@@ -81,7 +81,7 @@ include('config.inc.php');
                 <div class="form-control">
                   <label for="order">
                     <h3>Order</h3>
-                    <select id="order" name="order" class="input" onChange="updateMap();">
+                    <select id="order" name="order" class="input" onChange="window.stop();updateMap();">
                         <option value="asc" >Ascending</option>
                         <option value="desc" SELECTED>Descending</option>
                     </select>
