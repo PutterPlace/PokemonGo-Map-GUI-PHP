@@ -1,8 +1,8 @@
 RewriteEngine on
 
-RewriteRule ^raw_data$ /app.php?func=raw_data$1 [QSA,L]
-RewriteRule ^loc$ /app.php?func=loc$1 [QSA,L]
-RewriteRule ^next_loc$ /app.php?func=next_loc$1 [QSA,L]
-RewriteRule ^mobile$ /app.php?func=mobile$1 [QSA,L]
-RewriteRule ^search_control$ /app.php?func=search_control$1 [QSA,L]
-RewriteRule ^stats$ /statistics.php$1 [QSA,L]
+RewriteRule ^raw_data$ ./app.php?func=raw_data$1 [QSA,L]
+RewriteRule ^loc$ ./app.php?func=loc$1 [QSA,L]
+RewriteRule ^next_loc$ ./app.php?func=next_loc$1 [QSA,L]
+RewriteRule ^mobile$ ./app.php?func=mobile$1 [QSA,L]
+RewriteRule ^search_control$ ./app.php?func=search_control$1 [QSA,L]
+RewriteRule ^stats$ ./statistics.php$1 [QSA,L]
